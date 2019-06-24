@@ -12,6 +12,16 @@ const ApiService = {
         'X-RapidAPI-Key' : config.API_KEY
       }
     }).then(res => (!res.ok ? console.log(res) : res.json()))
+  },
+
+  getDrinkDetails(drinkId){
+    return fetch(`${config.API_ENDPOINT}lookup.php?i=${drinkId}`, {
+      method:'GET',
+      headers:{
+        'X-RapidAPI-Host' : config.API_HOST,
+        'X-RapidAPI-Key' : config.API_KEY
+      }
+    }).then(res => (!res.ok ? console.log(res) : res.json()))
   }
 }
 export default ApiService;
